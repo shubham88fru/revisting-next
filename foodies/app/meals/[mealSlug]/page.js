@@ -4,7 +4,8 @@ import { getMeal } from "@/lib/meals";
 import { notFound } from "next/navigation";
 
 async function MealDetailPage({ params }) {
-  const meal = await getMeal(params.mealSlug);
+  const { mealSlug } = await params;
+  const meal = await getMeal(mealSlug);
   if (!meal) {
     notFound();
   }
